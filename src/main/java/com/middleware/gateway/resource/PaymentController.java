@@ -20,7 +20,7 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    @PostMapping("/transaction")
+    @PostMapping("/transaction/initiate")
     @ApiOperation(value = "Initiate a new transaction", response = GenericResponse.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successfully initiated transaction"),
@@ -43,7 +43,7 @@ public class PaymentController {
         return new ResponseEntity<>(response, response.getStatus());
     }
 
-    @PostMapping("/webhook")
+    @PostMapping("/webhook/notification")
     @ApiOperation(value = "Receive webhook notifications", response = GenericResponse.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Webhook notification received successfully"),
